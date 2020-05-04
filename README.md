@@ -9,12 +9,13 @@ This program will divide the input picture into multiple regions and run object 
 通常、遠くにあるオブジェクトは映像に小さく映ります。特に監視カメラのように高い位置に設置され見下ろしているような場合に顕著です。  
 このプログラムでは入力画像を列(row), 行(column)に分割して、分割画像ごとに推論した結果を統合し、NMS (Non-Maximum Suppression)アルゴリズムで重複検出オフジェクトを除外することで最終結果を得るようにしています。プログラム中のパラメータを変更することで列、行の分割数を変更することが可能です。上の列を細かく分割することで、遠くにあるオブジェクトが写っている領域を不必要に縮小することを避けることができるようになり、検出精度の向上が見込めます。
 
+### Divided regions [9, 6, 3]
 ![regions](./resources/regions.jpg)
 
-The boundary box in red are **the rejected objects** by NMS algorithm.
+### Detection Result ; the boundary boxes in red are **the rejected objects** by NMS algorithm.
 ![rsult](./resources/result.jpg)
 
-If you **don't apply this technique**, shrink the entire image and do single inference, you'll get this poor result. (`naive-objdet.py`) 
+### Detection Result without adaptive partitioning ; If you **don't apply this technique**, shrink the entire image and do single inference, you'll get this poor result. (`naive-objdet.py`) 
 ![naive-result](./resources/naive-result.jpg)
 
 ### Required DL Models to Run This Demo
