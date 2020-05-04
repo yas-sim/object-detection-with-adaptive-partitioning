@@ -12,6 +12,8 @@ This program will divide the input picture into multiple regions and run object 
 ![regions](./resources/regions.jpg)
 ![rsult](./resources/result.jpg)
 
+If you **don't apply this technique**, shrink the entire image and do single inference, you'll get this poor result. (`naive-objdet.py`) 
+![naive-result](./resources/naive-result.jpg)
 
 ### Required DL Models to Run This Demo
 
