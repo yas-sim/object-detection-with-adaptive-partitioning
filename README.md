@@ -12,10 +12,10 @@ This program will divide the input picture into multiple regions and run object 
 ### Divided regions [9, 6, 3]
 ![regions](./resources/regions.jpg)
 
-### Detection Result ; the boundary boxes in red are **the rejected objects** by NMS algorithm.
+### Detection Result: The boundary boxes in red are **the objects rejected by the NMS algorithm**.
 ![rsult](./resources/result.jpg)
 
-### Detection Result without adaptive partitioning ; If you **don't apply this technique**, shrink the entire image and do single inference, you'll get this poor result. (`naive-objdet.py`) 
+### Detection Result without adaptive partitioning: If you **don't apply this technique**, the entire image will be shrunk and single inference will be performed. You'll get this poor result. (`naive-objdet.py`) 
 ![naive-result](./resources/naive-result.jpg)
 
 ### Required DL Models to Run This Demo
