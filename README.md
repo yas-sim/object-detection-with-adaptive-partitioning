@@ -10,6 +10,8 @@ This program will divide the input picture into multiple regions and run object 
 このプログラムでは入力画像を列(row), 行(column)に分割して、分割画像ごとに推論した結果を統合し、NMS (Non-Maximum Suppression)アルゴリズムで重複検出オフジェクトを除外することで最終結果を得るようにしています。プログラム中のパラメータを変更することで列、行の分割数を変更することが可能です。上の列を細かく分割することで、遠くにあるオブジェクトが写っている領域を不必要に縮小することを避けることができるようになり、検出精度の向上が見込めます。
 
 ![regions](./resources/regions.jpg)
+
+The boundary box in red are **the rejected objects** by NMS algorithm.
 ![rsult](./resources/result.jpg)
 
 If you **don't apply this technique**, shrink the entire image and do single inference, you'll get this poor result. (`naive-objdet.py`) 
@@ -30,6 +32,8 @@ Please see more information about `Model downloader` [here](../../../tools/downl
 ## How to Run
 
 (Assuming you have successfully installed and setup OpenVINO 2020.2. If you haven't, go to the OpenVINO web page and follow the [*Get Started*](https://software.intel.com/en-us/openvino-toolkit/documentation/get-started) guide to do it.)  
+
+- This program is tested with 1920x1080 HD image but it should accept the arbitrary size image.  
 
 ### 1. Install dependencies  
 The demo depends on:
