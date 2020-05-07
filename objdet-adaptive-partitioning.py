@@ -159,7 +159,7 @@ def main():
         for obj_id2, obj2 in enumerate(objects[obj_id1+1:]):
             if obj1[6] == True and obj2[6]==True:
                 IOU = iou(obj1[0:3+1], obj2[0:3+1])
-                if IOU>0.7:
+                if IOU>0.5:
                     if obj1[4]<obj2[4]:
                         obj1[6] = False
                     else:
@@ -172,7 +172,8 @@ def main():
         if obj[6]==True:
             img = cv2.rectangle(img, (obj[0], obj[1]), (obj[2], obj[3]), (0,255,0), 2)  # Found object
         else:
-            img = cv2.rectangle(img, (obj[0], obj[1]), (obj[2], obj[3]), (0,0,255), 4)  # Object which is rejected by NMS
+            pass
+            img = cv2.rectangle(img, (obj[0], obj[1]), (obj[2], obj[3]), (0,0,255), 1)  # Object which is rejected by NMS
     cv2.imshow('result', img)
     print('Displaying detection result for 10 seconds.')
     cv2.waitKey(10 * 1000)
